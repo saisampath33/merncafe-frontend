@@ -11,13 +11,13 @@ export default function Admin() {
         <h2 className="admin-title">🛠️ Admin Panel</h2>
         <ul>
           <li className={location.pathname === "/admin" ? "active" : ""}>
-            <Link to="/admin">👤 Users</Link>
+            <Link to="/admin">Users</Link>
           </li>
           <li className={location.pathname.includes("products") ? "active" : ""}>
-            <Link to="/admin/products">🛍️ Products</Link>
+            <Link to="/admin/products">Products</Link>
           </li>
           <li className={location.pathname.includes("orders") ? "active" : ""}>
-            <Link to="/admin/orders">📦 Orders</Link>
+            <Link to="/admin/orders">Orders</Link>
           </li>
         </ul>
       </nav>

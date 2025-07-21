@@ -86,7 +86,7 @@ export default function Profile() {
         />
       </div>
       <button type="button" className="update-btn" onClick={handleSubmit}>
-        💾 Update Profile
+         Update Profile
       </button>
     </div>
   );

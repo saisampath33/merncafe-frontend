@@ -62,8 +62,8 @@ export default function Orders() {
         {orders &&
           orders.map((order) => (
             <li key={order._id} className="order-item">
-              <span>🆔 <b>{order._id}</b></span>
-              <span>💰 ₹{order.orderValue}</span>
+              <span> <b>{order._id}</b></span>
+              <span> ₹{order.orderValue}</span>
               <span>Status: <strong>{order.status}</strong></span>
               {order.status === "Pending" && (
                 <div className="order-actions">
@@ -71,13 +71,13 @@ export default function Orders() {
                     className="cancel-btn"
                     onClick={() => updateOrder("cancelled", order._id)}
                   >
-                    ❌ Cancel
+                     Cancel
                   </button>
                   <button
                     className="complete-btn"
                     onClick={() => updateOrder("completed", order._id)}
                   >
-                    ✅ Complete
+                     Complete
                   </button>
                 </div>
               )}

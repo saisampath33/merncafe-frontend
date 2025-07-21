@@ -139,7 +139,7 @@ export default function Users() {
           name="firstName"
           value={form.firstName}
           type="text"
-          placeholder="🧑 First Name"
+          placeholder=" First Name"
           onChange={handleChange}
           required
         />
@@ -147,7 +147,7 @@ export default function Users() {
           name="lastName"
           value={form.lastName}
           type="text"
-          placeholder="👤 Last Name"
+          placeholder=" Last Name"
           onChange={handleChange}
           required
         />
@@ -155,7 +155,7 @@ export default function Users() {
           name="email"
           value={form.email}
           type="text"
-          placeholder="📧 Email"
+          placeholder=" Email"
           onChange={handleChange}
           required
         />
@@ -163,7 +163,7 @@ export default function Users() {
           name="password"
           value={form.password}
           type="password"
-          placeholder="🔑 Password"
+          placeholder=" Password"
           onChange={handleChange}
           required
         />
@@ -173,14 +173,14 @@ export default function Users() {
           required
           onChange={handleChange}
         >
-          <option value="">🎭 Select Role</option>
+          <option value=""> Select Role</option>
           <option value="user">User</option>
           <option value="admin">Admin</option>
         </select>
         {editId ? (
           <>
-            <button onClick={handleUpdate}>💾 Update</button>
-            <button onClick={handleCancel}>❌ Cancel</button>
+            <button onClick={handleUpdate}> Update</button>
+            <button onClick={handleCancel}> Cancel</button>
           </>
         ) : (
           <button onClick={handleAdd}>➕ Add</button>

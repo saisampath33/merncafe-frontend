@@ -32,7 +32,7 @@ export default function Order() {
       {error && <p className="error-message">{error}</p>}
       {orders.map((order) => (
         <div key={order._id} className="order-card">
-          <h4>🧾 Order ID: <span>{order._id}</span></h4>
+          <h4> Order ID: <span>{order._id}</span></h4>
           <p><FaRupeeSign /> <strong>Total:</strong> ₹{order.orderValue}</p>
           <p><FaCheckCircle color="green" /> <strong>Status:</strong> {order.status}</p>
 
@@ -40,9 +40,9 @@ export default function Order() {
             <thead>
               <tr>
                 <th><FaBoxOpen /> Product</th>
-                <th>💰 Price</th>
-                <th>📦 Qty</th>
-                <th>🧮 Total</th>
+                <th> Price</th>
+                <th> Qty</th>
+                <th> Total</th>
               </tr>
             </thead>
             <tbody>

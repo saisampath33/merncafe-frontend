@@ -60,8 +60,8 @@ export default function Cart() {
             (item) =>
               item.qty > 0 && (
                 <div key={item._id} className="cart-card">
-                  <h3>📦 {item.productName}</h3>
-                  <p>💰 Price: ₹{item.price}</p>
+                  <h3> {item.productName}</h3>
+                  <p> Price: ₹{item.price}</p>
                   <div className="quantity-controls">
                     <button onClick={() => decrement(item._id, item.qty)}>➖</button>
                     <span>{item.qty}</span>
@@ -74,7 +74,7 @@ export default function Cart() {
       </div>
 
       <div className="cart-summary">
-        <h4>💵 Total Order Value: ₹{orderValue}</h4>
+        <h4> Total Order Value: ₹{orderValue}</h4>
         {user?.token ? (
           <button className="place-order-btn" onClick={placeOrder}>
             🚀 Place Order

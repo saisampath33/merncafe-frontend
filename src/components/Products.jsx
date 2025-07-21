@@ -145,7 +145,7 @@ export default function Products() {
           name="price"
           value={form.price}
           type="number"
-          placeholder="💲 Price"
+          placeholder="Price"
           onChange={handleChange}
           required
         />
@@ -153,7 +153,7 @@ export default function Products() {
           name="imgUrl"
           value={form.imgUrl}
           type="text"
-          placeholder="📸 Image URL"
+          placeholder="Image URL"
           onChange={handleChange}
           required
         />
@@ -188,11 +188,11 @@ export default function Products() {
         <table>
           <thead>
             <tr>
-              <th>🌟 Name</th>
-              <th>🖊️ Description</th>
-              <th>💲 Price</th>
-              <th>📸 Image</th>
-              <th>🔧 Action</th>
+              <th> Name</th>
+              <th> Description</th>
+              <th> Price</th>
+              <th> Image</th>
+              <th> Action</th>
             </tr>
           </thead>
           <tbody>
