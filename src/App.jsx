@@ -24,7 +24,7 @@ function AppContent() {
 
   return (
     <>
-    <ToastContainer position="top-right" autoClose={3000} />
+    <ToastContainer position="top-right" autoClose={1000} />
       <Header />
       <Routes>
         <Route index element={<Product />} />
