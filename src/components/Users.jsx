@@ -200,11 +200,11 @@ export default function Users() {
         <table>
           <thead>
             <tr>
-              <th>🧑 First</th>
-              <th>👤 Last</th>
-              <th>📧 Email</th>
-              <th>🎭 Role</th>
-              <th>⚙️ Actions</th>
+              <th> FirstName</th>
+              <th> LastName</th>
+              <th> Email</th>
+              <th> Role</th>
+              <th> Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -215,8 +215,8 @@ export default function Users() {
                 <td>{value.email}</td>
                 <td>{value.role}</td>
                 <td className="actions">
-                  <button onClick={() => handleEdit(value)}>✏️ Edit</button>
-                  <button onClick={() => handleDelete(value._id)}>🗑️ Delete</button>
+                  <button onClick={() => handleEdit(value)}>Edit</button>
+                  <button onClick={() => handleDelete(value._id)}>Delete</button>
                 </td>
               </tr>
             ))}
