@@ -1,0 +1,121 @@
+/* Orders.css */
+
+.orders-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f8f9fd;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.orders-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.order-filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.order-filter select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+.error-message {
+  background: #ffe0e0;
+  color: #900;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.orders-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-item {
+  background-color: white;
+  padding: 16px 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  align-items: center;
+}
+
+.order-item span {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.order-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.cancel-btn,
+.complete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.cancel-btn {
+  background-color: #f56565;
+  color: white;
+}
+
+.complete-btn {
+  background-color: #48bb78;
+  color: white;
+}
+
+.cancel-btn:hover,
+.complete-btn:hover {
+  transform: scale(1.05);
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.pagination-controls button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #667eea;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-controls button:hover {
+  background-color: #5a67d8;
+}
+
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

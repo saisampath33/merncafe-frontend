@@ -1,0 +1,71 @@
+.orders-container {
+  padding: 2rem;
+  background-color: #f4f8fc;
+  color: #333;
+}
+
+.orders-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4b2dd0;
+  font-size: 1.8rem;
+}
+
+.order-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+}
+
+.order-card h4 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.order-card h4 span {
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.order-card p {
+  font-size: 1rem;
+  margin: 0.3rem 0;
+}
+
+.order-table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.order-table th,
+.order-table td {
+  border: 1px solid #e0e0e0;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.order-table th {
+  background-color: #f1f3f8;
+  color: #333;
+}
+
+.order-table td {
+  background-color: #ffffff;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+}

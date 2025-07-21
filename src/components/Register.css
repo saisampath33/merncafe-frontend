@@ -1,0 +1,81 @@
+/* Register.css */
+
+.register-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f9f7f7, #a1c4fd, #c2e9fb);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1rem;
+}
+
+.register-box {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.register-heading {
+  margin-bottom: 1.5rem;
+  font-size: 1.9rem;
+  color: #333;
+}
+
+.register-box input {
+  width: 90%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.register-box input:focus {
+  border-color: #7b2ff7;
+  box-shadow: 0 0 0 2px rgba(123, 47, 247, 0.2);
+  outline: none;
+}
+
+.register-box button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #7b2ff7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-box button:hover {
+  background-color: #692dd3;
+}
+
+.register-link {
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  color: #444;
+}
+
+.register-link a {
+  color: #7b2ff7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-error {
+  background-color: #ffe5e5;
+  color: #d8000c;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
