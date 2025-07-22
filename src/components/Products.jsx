@@ -129,7 +129,7 @@ export default function Products() {
           name="productName"
           value={form.productName}
           type="text"
-          placeholder="🌊 Product Name"
+          placeholder=" Product Name"
           onChange={handleChange}
           required
         />
@@ -137,7 +137,7 @@ export default function Products() {
           name="description"
           value={form.description}
           type="text"
-          placeholder="🔍 Description"
+          placeholder=" Description"
           onChange={handleChange}
           required
         />
