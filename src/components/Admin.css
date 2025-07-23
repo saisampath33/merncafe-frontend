@@ -1,13 +1,13 @@
 /* Admin.css */
 .admin-container {
   display: flex;
-  height: 100vh;
+  height: 90vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f7fa;
 }
 
 .admin-sidebar {
-  width: 220px;
+  width: 210px;
   background-color: #4a4e69;
   color: white;
   padding: 30px 20px;
