@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./Products.css";
 import { FaSearch, FaEdit, FaTrash, FaPlus, FaTimes } from "react-icons/fa";
@@ -20,6 +19,7 @@ export default function Products() {
   const [limit, setLimit] = useState(2);
   const [editId, setEditId] = useState();
   const API_URL = import.meta.env.VITE_API_URL;
+  const [uploading, setUploading] = useState(false);
 
   const fetchProducts = async () => {
     try {
@@ -41,8 +41,7 @@ export default function Products() {
 
   const handleDelete = async (id) => {
     try {
-      const url = `${API_URL}/api/products/${id}`;
-      await axios.delete(url);
+      await axios.delete(`${API_URL}/api/products/${id}`);
       setError("Product Deleted Successfully");
       fetchProducts();
     } catch (err) {
@@ -55,16 +54,36 @@ export default function Products() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // Handle file upload to backend → Cloudinary
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try {
+      setUploading(true);
+      const res = await axios.post(`${API_URL}/api/upload`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      setForm({ ...form, imgUrl: res.data.imageUrl });
+      setUploading(false);
+    } catch (err) {
+      console.error(err);
+      setError("Image upload failed");
+      setUploading(false);
+    }
+  };
+
   const handleAdd = async (e) => {
     e.preventDefault();
-    const frm = frmRef.current;
-    if (!frm.checkValidity()) {
-      frm.reportValidity();
+    if (!form.imgUrl) {
+      setError("Please upload an image first");
       return;
     }
     try {
-      const url = `${API_URL}/api/products`;
-      await axios.post(url, form);
+      await axios.post(`${API_URL}/api/products`, form);
       setError("Product added successfully");
       fetchProducts();
       resetForm();
@@ -77,7 +96,6 @@ export default function Products() {
   const handleEdit = (product) => {
     setEditId(product._id);
     setForm({
-      ...form,
       productName: product.productName,
       description: product.description,
       price: product.price,
@@ -87,18 +105,12 @@ export default function Products() {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const frm = frmRef.current;
-    if (!frm.checkValidity()) {
-      frm.reportValidity();
-      return;
-    }
     try {
-      const url = `${API_URL}/api/products/${editId}`;
-      await axios.patch(url, form);
+      await axios.patch(`${API_URL}/api/products/${editId}`, form);
       fetchProducts();
       setEditId();
       resetForm();
-      setError("Product information updated successfully");
+      setError("Product updated successfully");
     } catch (err) {
       console.log(err);
       setError("Something went wrong");
@@ -111,25 +123,19 @@ export default function Products() {
   };
 
   const resetForm = () => {
-    setForm({
-      productName: "",
-      description: "",
-      price: "",
-      imgUrl: "",
-    });
+    setForm({ productName: "", description: "", price: "", imgUrl: "" });
   };
 
   return (
     <div className="products-container">
-      <h2 className="products-title">🌟 Product Management
-      </h2>
+      <h2 className="products-title">🌟 Product Management</h2>
       {error && <div className="error-msg">{error}</div>}
       <form ref={frmRef} className="product-form">
         <input
           name="productName"
           value={form.productName}
           type="text"
-          placeholder=" Product Name"
+          placeholder="Product Name"
           onChange={handleChange}
           required
         />
@@ -137,7 +143,7 @@ export default function Products() {
           name="description"
           value={form.description}
           type="text"
-          placeholder=" Description"
+          placeholder="Description"
           onChange={handleChange}
           required
         />
@@ -149,14 +155,18 @@ export default function Products() {
           onChange={handleChange}
           required
         />
-        <input
-          name="imgUrl"
-          value={form.imgUrl}
-          type="text"
-          placeholder="Image URL"
-          onChange={handleChange}
-          required
-        />
+
+        {/* File upload */}
+        <input type="file" accept="image/*" onChange={handleFileUpload} />
+        {uploading && <p>Uploading image...</p>}
+        {form.imgUrl && (
+          <img
+            src={form.imgUrl}
+            alt="preview"
+            style={{ width: "100px", marginTop: "5px" }}
+          />
+        )}
+
         {editId ? (
           <div className="form-buttons">
             <button className="edit-btn" onClick={handleUpdate}>
@@ -173,6 +183,7 @@ export default function Products() {
         )}
       </form>
 
+      {/* Search */}
       <div className="search-bar">
         <input
           type="text"
@@ -184,15 +195,16 @@ export default function Products() {
         </button>
       </div>
 
+      {/* Table */}
       <div className="table-container">
         <table>
           <thead>
             <tr>
-              <th> Name</th>
-              <th> Description</th>
-              <th> Price</th>
-              <th> Image</th>
-              <th> Action</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Image</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -209,7 +221,10 @@ export default function Products() {
                   />
                 </td>
                 <td>
-                  <button onClick={() => handleEdit(value)} className="edit-btn">
+                  <button
+                    onClick={() => handleEdit(value)}
+                    className="edit-btn"
+                  >
                     <FaEdit />
                   </button>
                   <button
@@ -225,6 +240,7 @@ export default function Products() {
         </table>
       </div>
 
+      {/* Pagination */}
       <div className="pagination">
         <button disabled={page === 1} onClick={() => setPage(page - 1)}>
           ⬅️ Prev
@@ -232,7 +248,10 @@ export default function Products() {
         <span>
           Page {page} of {totalPages}
         </span>
-        <button disabled={page === totalPages} onClick={() => setPage(page + 1)}>
+        <button
+          disabled={page === totalPages}
+          onClick={() => setPage(page + 1)}
+        >
           Next ➡️
         </button>
       </div>

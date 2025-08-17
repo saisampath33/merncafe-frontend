@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AppContext } from "../App";
 import "./Product.css";
+import ImageUpload from "../components/ImageUpload";
 
 export default function Product() {
   const API_URL = import.meta.env.VITE_API_URL;

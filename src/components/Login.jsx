@@ -40,7 +40,7 @@ export default function Login() {
         <button onClick={handleSubmit}>Submit</button>
         <hr />
         <p className="login-link">
-          Already a member? <Link to="/register">Login here</Link>
+          New Member? <Link to="/register">Register here</Link>
         </p>
       </div>
     </div>
